@@ -16,7 +16,7 @@ public class Duelme extends GameMode {
 
 	public void play() { // methode
 
-		int nbEssai = 4; // variable local (valide uniquement dans la methode play)
+		int nbEssai = 4; // variable local (valide uniquement dans la methode play) // modifier ici car il y a un bug
 		boolean winIA = false;
 		boolean winHuman = false;
 		while (winIA == false && winHuman == false && nbEssai != 0) {
