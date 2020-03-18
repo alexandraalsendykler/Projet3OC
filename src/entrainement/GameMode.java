@@ -96,21 +96,22 @@ public abstract class GameMode {
 																						// parametres d'entree pour
 																						// qu'elle puisse travailler
 		View.comparerValeur2 = ""; // remet a 0 la valeur comparerValeur2 soit ce qui affiche le +/=/-
+		String[] comparaison = new String[4]; // favoriser les variables locales plut�t que les attributs de classe 
 		for (int i = 0; i < 4; i++) {
 			if (proposition[i] < combinaisonadeviner[i]) {
-				result[i] = "+";
+				comparaison[i] = "+";
 			} else if (proposition[i] > combinaisonadeviner[i]) {
-				result[i] = "-";
+				comparaison[i] = "-";
 			} else if (proposition[i] == combinaisonadeviner[i]) {
-				result[i] = "=";
+				comparaison[i] = "=";
 			}
 
-			View.comparerValeur2 += result[i]; // mets bout à bout les valeurs de result soit +/=/-
+			View.comparerValeur2 += comparaison[i]; // mets bout à bout les valeurs de result soit +/=/-
 		}
 
 		View.display(View.comparerValeur2);
 
-		return result; // permet de retourner un resultat / It is used to exit from a method, with or
+		return comparaison; // permet de retourner un resultat / It is used to exit from a method, with or
 						// without a value / valeurs en sortie
 
 	}
