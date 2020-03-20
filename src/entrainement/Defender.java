@@ -17,15 +17,19 @@ public class Defender extends GameMode {
 			if (this.success == true) {
 				break;
 			}
+			
 
 		} while (this.cpt < 4);
 
 		if (this.success == true) {
-			System.out.print("Vous avez perdu !");
+			System.out.print("Vous avez perdu ! ");
 		} else {
-			System.out.print("Vous avez gagné !");
+			System.out.print("Vous avez gagné ! ");
 
 		}
+		
+		View.display(View.jeuTermine);
 	}
 
 }
+

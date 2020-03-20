@@ -28,14 +28,6 @@ public class Duelme extends GameMode {
 			String[] resultHuman = this.comparerValeurs2(stringToInt(this.human), combinaisonIA);
 			winHuman = checkResult(resultHuman);
 
-			// demander la proposition de l'IA
-			// if (resultIA == null) {
-			// this.generateNumber(null, null);
-			// } else {
-			// int[] tampIA = this.IA;
-			// this.generateNumber(tampIA, resultIA);
-			// }
-
 			if (resultIA[0] == null) { // si resultIA est égale à nul alors la proposition de l'IA va générer
 				// 4 chiffres aléatoirement sinon il va vérifier si c'est = / + ou -
 

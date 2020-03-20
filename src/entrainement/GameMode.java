@@ -32,7 +32,7 @@ public abstract class GameMode {
 					number[i] = proposition[i]; // la valeur de l'IA est garde si elle est egale a la precedente
 
 				} else if (result[i] == "+") {
-					int rand = (int) (Math.random() * (10 - proposition[i])) + proposition[i]; // math random l'IA
+					int rand = (int) (Math.random() * (10 - proposition[i]+1)) + proposition[i]+1; // math random l'IA
 					number[i] = rand; // choisi un float
 					// entre 0 et 1 puis
 					// la multiplication
@@ -42,7 +42,7 @@ public abstract class GameMode {
 					// et le maximum
 
 				} else if (result[i] == "-") {
-					int rand = (int) (Math.random() * proposition[i]);
+					int rand = (int) (Math.random() * proposition[i]-1);
 					number[i] = rand; // l'IA va prendre la valeur entre 0 et la valeur precedente
 
 				}

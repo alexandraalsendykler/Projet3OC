@@ -21,11 +21,13 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		} while (this.cpt < 4);
 
 		if (this.success == true) {
-			System.out.print("Vous avez gagne !");
+			System.out.print("Vous avez gagne ! ");
 		} else {
-			System.out.print("Vous avez perdu !");
+			System.out.print("Vous avez perdu ! ");
 
 		}
+		
+		View.display(View.jeuTermine);
 	}
 
 }
