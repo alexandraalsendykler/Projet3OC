@@ -7,9 +7,11 @@ public class View {
 	public static String nBEssai = "Vous disposez de 4 essais"; // proposition afficher l'info comme quoi le joueur & IA
 																// // on a 4 essais
 	public static String jeuTermine = "Le jeu est terminé, merci d'avoir joué !"; // indique que le jeu est fini
-
+	public static String vousAvezGagné = "Vous avez gagné !";
+	public static String vousAvezPerdu = "Vous avez perdu !";
 	public static void display(String text) { // methode on les reconnait grace aux accolades et les parentheses
-
+	
+	
 		System.out.println(text);
 	}
 

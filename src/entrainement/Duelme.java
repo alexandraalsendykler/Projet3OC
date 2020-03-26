@@ -14,8 +14,12 @@ public class Duelme extends GameMode {
 		View.display(View.nBEssai); // indique au joueur le nb d'essai
 	}
 
-	public void play() { // methode
-
+	public void play(String developpeurMode) { // methode
+		
+		if(developpeurMode.equals("activermodedev")) {
+			View.display(View.propositionIA(combinaisonIA));
+		}
+		
 		int nbEssai = 4; // variable local (valide uniquement dans la methode play) // modifier ici car il y a un bug
 		boolean winIA = false;
 		boolean winHuman = false;

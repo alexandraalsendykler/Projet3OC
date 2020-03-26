@@ -3,12 +3,16 @@ package entrainement;
 public class Challenger extends GameMode { // extends = heritage de GameMode
 
 	public Challenger() { // constructeur de la classe Challenger
-
+		
 		this.IA = this.generateNumber(null, null);
 
 	}
 
-	public void play() {
+	public void play(String developpeurMode) {
+		
+		if(developpeurMode.equals("activermodedev")) {
+			View.display(View.propositionIA(this.IA));
+		}
 
 		do { // boucle // do while
 			this.recupererChoixHuman();
@@ -21,9 +25,9 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		} while (this.cpt < 4);
 
 		if (this.success == true) {
-			System.out.print("Vous avez gagne ! ");
+			View.display(View.vousAvezGagné);
 		} else {
-			System.out.print("Vous avez perdu ! ");
+			View.display(View.vousAvezPerdu);
 
 		}
 		

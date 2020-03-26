@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Entrainement {
 
 	public static void main(String[] args) {
+		String arguments="";
+		if(args.length!= 0) {
+			arguments = args[0];
+		}
 		int choiceReStart = 1; // variable interne a la methode et non plus un attribut de classe 
 		while (choiceReStart == 1) { // tant que choiceRestart est = 1 (choix) j'execute la boucle
 
@@ -17,7 +21,7 @@ public class Entrainement {
 			switch (userInput) {
 			case 1:
 				Challenger chall = new Challenger();
-				chall.play();
+				chall.play(arguments);
 
 				break;
 
@@ -28,7 +32,7 @@ public class Entrainement {
 
 			case 3:
 				Duelme duel = new Duelme();
-				duel.play();
+				duel.play(arguments);
 				break;
 
 			}
