@@ -22,9 +22,9 @@ public class Defender extends GameMode {
 		} while (this.cpt < 4);
 
 		if (this.success == true) {
-			View.display(View.vousAvezGagné);
+			View.display(View.vousAvezGagné); // a remplacé system.out.println
 		} else {
-			View.display(View.vousAvezPerdu);
+			View.display(View.vousAvezPerdu); // a remplacé system.out.println
 
 		}
 		
