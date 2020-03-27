@@ -1,74 +1,68 @@
 package entrainement;
 
 public class Duel extends GameMode {
-	protected boolean IaSuccess = false;
-	protected boolean joueurSuccess = false;
-	protected String[] combinaisonJoueur = new String[4];
-	protected int[] combinaisonIA = new int[4];
-	protected int[] propositionIA = new int[4];
-	protected int[] bonneReponseIA = { 10, 10, 10, 10 };
 
-	public Duel() {
-		this.generateNumber();
-		this.combinaisonIA = this.IA;
+	private String[] combinaisonHumain = new String[4];
+	private int[] combinaisonIA = new int[4];
+	private String[] resultIA = new String[4];
 
-		this.RecupererChoixHuman();
-		this.combinaisonJoueur = this.human;
+	public Duel() { // constructeur, a toujours le meme nom que la classe // c'est une super methode
+
+		this.recupererChoixHuman();
+		combinaisonHumain = this.human;
+		combinaisonIA = this.generateNumber(null, null);
+		View.display(View.nBEssai); // indique au joueur le nb d'essai
 	}
 
-	public void BonneReponse() {
-		for (int i = 0; i < 4; i++) {
+	public void play(String developpeurMode) { // methode
+		
+		if(developpeurMode.equals("activermodedev")) {
+			View.display(View.propositionIA(combinaisonIA));
+		}
+		
+		int nbEssai = 4; // variable local (valide uniquement dans la methode play) // modifier ici car il y a un bug
+		boolean winIA = false;
+		boolean winHuman = false;
+		while (winIA == false && winHuman == false && nbEssai != 0) {
 
-			if (this.bonneReponseIA[i] == 10) {
+			// demander une proposition au joueur
 
-				int rand = (int) (Math.random() * 10);
-				this.propositionIA[i] = rand;
+			this.recupererChoixHuman();
 
+			String[] resultHuman = this.comparerValeurs2(stringToInt(this.human), combinaisonIA);
+			winHuman = checkResult(resultHuman);
+
+			if (resultIA[0] == null) { // si resultIA est égale à nul alors la proposition de l'IA va générer
+				// 4 chiffres aléatoirement sinon il va vérifier si c'est = / + ou -
+
+				this.IA = this.generateNumber(null, null);
 			} else {
-				this.propositionIA[i] = this.bonneReponseIA[i];
+				this.IA = this.generateNumber(this.IA, resultIA);
 			}
-			System.out.print(this.propositionIA[i]);
+			View.display(View.propositionIA(this.IA));
+			resultIA = this.comparerValeurs2(this.IA, stringToInt(combinaisonHumain));
+			winIA = checkResult(resultIA);
+
+			nbEssai--;
+			View.display(View.nBEssaiRestant(nbEssai)); // exemple
+
 		}
-
-		System.out.print("\n");
-
+		View.display(View.jeuTermine); // faire attention au debut mise dans la boucle (mega blonde) -_- // bien mettre
+										// en dehors de la boucle
 	}
 
-	public void ChangeBonneReponse() {
+	private boolean checkResult(String[] result) {
+		int cpt = 0;
 		for (int i = 0; i < 4; i++) {
-			if (this.result[i] == "=") {
-				this.bonneReponseIA[i] = this.IA[i];
+			if (result[i] == "=") {
+				cpt++;
 			}
 		}
-	}
-
-	public void Play() {
-		while (IaSuccess == false && joueurSuccess == false) {
-			if (this.cpt % 2 == 0) {
-				this.BonneReponse();
-				this.IA = this.propositionIA;
-				this.human = this.combinaisonJoueur;
-				this.ComparerValeurs();
-				this.ChangeBonneReponse();
-				if (this.success) {
-					this.IaSuccess = true;
-				}
-			} else {
-				this.RecupererChoixHuman();
-				this.IA = this.combinaisonIA;
-				this.ComparerValeurs();
-				if (this.success) {
-					this.joueurSuccess = true;
-				}
-			}
-
-			cpt++;
-		}
-		if (joueurSuccess == true) {
-			System.out.print(" Vous avez gagné ! ");
+		if (cpt == 4) {
+			return true;
 		} else {
-			System.out.print(" Vous avez perdu ");
+			return false;
 		}
-
 	}
+
 }

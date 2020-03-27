@@ -12,7 +12,7 @@ public class Defender extends GameMode {
 
 		do {
 			this.IA = this.generateNumber(null, null);
-			this.ComparerValeurs();
+			this.ComparerValeurs(); // à modifier ancienne méthode 
 			this.cpt++;
 			if (this.success == true) {
 				break;

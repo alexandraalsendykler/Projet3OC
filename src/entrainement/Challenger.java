@@ -11,7 +11,7 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 	public void play(String developpeurMode) {
 		
 		if(developpeurMode.equals("activermodedev")) {
-			View.display(View.propositionIA(this.IA));
+			View.display(View.propositionIA(this.IA)); // mettre plutot View.combinaisonIA 
 		}
 
 		do { // boucle // do while

@@ -31,7 +31,7 @@ public class Entrainement {
 				break;
 
 			case 3:
-				Duelme duel = new Duelme();
+				Duel duel = new Duel();
 				duel.play(arguments);
 				break;
 

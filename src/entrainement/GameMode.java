@@ -63,7 +63,7 @@ public abstract class GameMode {
 		human = userInput.split("", 0);
 	}
 
-	public void ComparerValeurs() {
+	public void ComparerValeurs() { // à supprimer à terme
 
 		for (int i = 0; i < 4; i++) {
 			int input = Integer.parseInt(human[i]);
