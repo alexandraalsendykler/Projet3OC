@@ -17,7 +17,7 @@ public class Duel extends GameMode {
 	public void play(String developpeurMode) { // methode
 		
 		if(developpeurMode.equals("activermodedev")) {
-			View.display(View.propositionIA(combinaisonIA));
+			View.display(View.combinaisonIA(combinaisonIA));
 		}
 		
 		int nbEssai = 4; // variable local (valide uniquement dans la methode play) // modifier ici car il y a un bug
@@ -39,7 +39,7 @@ public class Duel extends GameMode {
 			} else {
 				this.IA = this.generateNumber(this.IA, resultIA);
 			}
-			View.display(View.propositionIA(this.IA));
+			View.display(View.combinaisonIA(this.IA));
 			resultIA = this.comparerValeurs2(this.IA, stringToInt(combinaisonHumain));
 			winIA = checkResult(resultIA);
 
@@ -47,8 +47,7 @@ public class Duel extends GameMode {
 			View.display(View.nBEssaiRestant(nbEssai)); // exemple
 
 		}
-		View.display(View.jeuTermine); // faire attention au debut mise dans la boucle (mega blonde) -_- // bien mettre
-										// en dehors de la boucle
+		View.display(View.jeuTermine); 
 	}
 
 	private boolean checkResult(String[] result) {

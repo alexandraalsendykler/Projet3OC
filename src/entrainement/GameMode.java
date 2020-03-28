@@ -54,9 +54,8 @@ public abstract class GameMode {
 
 	public void recupererChoixHuman() {
 
-		System.out.print("Entrez votre proposition à 4 chiffres s'il vous plait : "); // modification le 08/03 pour
-																						// rendre le jeu plus user
-																						// friendly
+		View.display(View.entréeProposition);
+																																				
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
 
@@ -106,7 +105,7 @@ public abstract class GameMode {
 				comparaison[i] = "=";
 			}
 
-			View.comparerValeur2 += comparaison[i]; // mets bout Ã  bout les valeurs de result soit +/=/-
+			View.comparerValeur2 += comparaison[i]; // mets bout à bout les valeurs de result soit +/=/-
 		}
 
 		View.display(View.comparerValeur2);

@@ -11,10 +11,10 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 	public void play(String developpeurMode) {
 		
 		if(developpeurMode.equals("activermodedev")) {
-			View.display(View.propositionIA(this.IA)); // mettre plutot View.combinaisonIA 
+			View.display(View.combinaisonIA(this.IA)); 
 		}
 
-		do { // boucle // do while
+		do { 
 			this.recupererChoixHuman();
 			this.ComparerValeurs();
 			this.cpt++;
@@ -25,9 +25,9 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		} while (this.cpt < 4);
 
 		if (this.success == true) {
-			View.display(View.vousAvezGagné); // a remplacé system.out.println
+			View.display(View.vousAvezGagné); 
 		} else {
-			View.display(View.vousAvezPerdu); // a remplacé system.out.println
+			View.display(View.vousAvezPerdu); 
 
 		}
 		
