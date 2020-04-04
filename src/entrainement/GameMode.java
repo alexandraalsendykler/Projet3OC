@@ -6,10 +6,6 @@ public abstract class GameMode {
 
 	protected String[] human = new String[4];
 	protected int[] IA = new int[4];
-	protected String[] result = new String[4];
-	protected int cpt = 0;
-	protected int cptResults = 0;
-	protected boolean success = false;
 
 	public int[] generateNumber(int[] proposition, String[] result) { // faire une amelioration pour tenir compte
 																		// chiffres // entrees + resultats des +/-/=
@@ -32,7 +28,8 @@ public abstract class GameMode {
 					number[i] = proposition[i]; // la valeur de l'IA est garde si elle est egale a la precedente
 
 				} else if (result[i] == "+") {
-					int rand = (int) (Math.random() * (10 - proposition[i]+1)) + proposition[i]+1; // math random l'IA
+					int rand = (int) (Math.random() * (10 - proposition[i] + 1)) + proposition[i] + 1; // math random
+																										// l'IA
 					number[i] = rand; // choisi un float
 					// entre 0 et 1 puis
 					// la multiplication
@@ -42,7 +39,7 @@ public abstract class GameMode {
 					// et le maximum
 
 				} else if (result[i] == "-") {
-					int rand = (int) (Math.random() * proposition[i]-1);
+					int rand = (int) (Math.random() * proposition[i] - 1);
 					number[i] = rand; // l'IA va prendre la valeur entre 0 et la valeur precedente
 
 				}
@@ -55,39 +52,11 @@ public abstract class GameMode {
 	public void recupererChoixHuman() {
 
 		View.display(View.entréeProposition);
-																																				
+
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
 
 		human = userInput.split("", 0);
-	}
-
-	public void ComparerValeurs() { // à supprimer à terme
-
-		for (int i = 0; i < 4; i++) {
-			int input = Integer.parseInt(human[i]);
-			if (IA[i] < input) {
-				result[i] = "-";
-			} else if (IA[i] > input) {
-				result[i] = "+";
-			} else if (IA[i] == input) {
-				result[i] = "=";
-			}
-			System.out.print(result[i]);
-
-			if (result[i] == "=") {
-				cptResults++;
-			}
-		}
-		System.out.print("\n");
-
-		if (cptResults == 4) {
-			success = true;
-
-		} else {
-			success = false;
-			cptResults = 0;
-		}
 	}
 
 	public String[] comparerValeurs2(int[] proposition, int[] combinaisonadeviner) { // proposition &
@@ -95,7 +64,7 @@ public abstract class GameMode {
 																						// parametres d'entree pour
 																						// qu'elle puisse travailler
 		View.comparerValeur2 = ""; // remet a 0 la valeur comparerValeur2 soit ce qui affiche le +/=/-
-		String[] comparaison = new String[4]; // favoriser les variables locales plutôt que les attributs de classe 
+		String[] comparaison = new String[4]; // favoriser les variables locales plutôt que les attributs de classe
 		for (int i = 0; i < 4; i++) {
 			if (proposition[i] < combinaisonadeviner[i]) {
 				comparaison[i] = "+";
@@ -111,7 +80,7 @@ public abstract class GameMode {
 		View.display(View.comparerValeur2);
 
 		return comparaison; // permet de retourner un resultat / It is used to exit from a method, with or
-						// without a value / valeurs en sortie
+		// without a value / valeurs en sortie
 
 	}
 
@@ -125,6 +94,20 @@ public abstract class GameMode {
 		}
 
 		return tableauInt;
+	}
+
+	public boolean checkResult(String[] result) {
+		int cpt = 0;
+		for (int i = 0; i < 4; i++) {
+			if (result[i] == "=") {
+				cpt++;
+			}
+		}
+		if (cpt == 4) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

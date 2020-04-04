@@ -50,18 +50,4 @@ public class Duel extends GameMode {
 		View.display(View.jeuTermine); 
 	}
 
-	private boolean checkResult(String[] result) {
-		int cpt = 0;
-		for (int i = 0; i < 4; i++) {
-			if (result[i] == "=") {
-				cpt++;
-			}
-		}
-		if (cpt == 4) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 }

@@ -3,7 +3,7 @@ package entrainement;
 public class Challenger extends GameMode { // extends = heritage de GameMode
 
 	public Challenger() { // constructeur de la classe Challenger
-		
+
 		this.IA = this.generateNumber(null, null);
 
 	}
@@ -13,18 +13,21 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		if(developpeurMode.equals("activermodedev")) {
 			View.display(View.combinaisonIA(this.IA)); 
 		}
-
+		int cpt = 0;
+		boolean winHuman = false;
 		do { 
 			this.recupererChoixHuman();
-			this.ComparerValeurs();
-			this.cpt++;
-			if (this.success == true) {
+			
+			String[] resultHuman = this.comparerValeurs2(stringToInt(this.human), this.IA);
+			winHuman = checkResult(resultHuman);
+			cpt++;
+			if (winHuman == true) {
 				break;
 			}
 
-		} while (this.cpt < 4);
+		} while (cpt < 4);
 
-		if (this.success == true) {
+		if (winHuman == true) {
 			View.display(View.vousAvezGagné); 
 		} else {
 			View.display(View.vousAvezPerdu); 
