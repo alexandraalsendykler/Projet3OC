@@ -1,18 +1,21 @@
 package entrainement;
 
+import java.util.Properties;
 import java.util.Scanner;
+import java.io.*;
 
 public abstract class GameMode {
-
-	protected String[] human = new String[4];
-	protected int[] IA = new int[4];
+	Properties properties = new Properties(System.getProperties());
+	public int nb_chiffre_combinaison = Integer.parseInt(properties.getProperty("nb_chiffre_combinaison"));
+	protected String[] human = new String[nb_chiffre_combinaison];
+	protected int[] IA = new int[nb_chiffre_combinaison];
 
 	public int[] generateNumber(int[] proposition, String[] result) { // faire une amelioration pour tenir compte
 																		// chiffres // entrees + resultats des +/-/=
-		int[] number = new int[4];
+		int[] number = new int[nb_chiffre_combinaison];
 		if (proposition == null && result == null) {
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < nb_chiffre_combinaison; i++) {
 				int rand = (int) (Math.random() * 10);
 				number[i] = rand;
 			}
@@ -23,7 +26,7 @@ public abstract class GameMode {
 			// du = / pour generer une valeur plus precise (a preparer pour pour session
 			// 13/03/2020
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < nb_chiffre_combinaison; i++) {
 				if (result[i] == "=") {
 					number[i] = proposition[i]; // la valeur de l'IA est garde si elle est egale a la precedente
 
@@ -65,7 +68,7 @@ public abstract class GameMode {
 																						// qu'elle puisse travailler
 		View.comparerValeur2 = ""; // remet a 0 la valeur comparerValeur2 soit ce qui affiche le +/=/-
 		String[] comparaison = new String[4]; // favoriser les variables locales plutôt que les attributs de classe
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < nb_chiffre_combinaison; i++) {
 			if (proposition[i] < combinaisonadeviner[i]) {
 				comparaison[i] = "+";
 			} else if (proposition[i] > combinaisonadeviner[i]) {
@@ -98,12 +101,12 @@ public abstract class GameMode {
 
 	public boolean checkResult(String[] result) {
 		int cpt = 0;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < nb_chiffre_combinaison; i++) {
 			if (result[i] == "=") {
 				cpt++;
 			}
 		}
-		if (cpt == 4) {
+		if (cpt == nb_chiffre_combinaison) {
 			return true;
 		} else {
 			return false;

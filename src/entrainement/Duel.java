@@ -7,7 +7,7 @@ public class Duel extends GameMode {
 	private String[] resultIA = new String[4];
 
 	public Duel() { // constructeur, a toujours le meme nom que la classe // c'est une super methode
-
+	
 		this.recupererChoixHuman();
 		combinaisonHumain = this.human;
 		combinaisonIA = this.generateNumber(null, null);

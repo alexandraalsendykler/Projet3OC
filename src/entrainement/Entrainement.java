@@ -1,15 +1,23 @@
 package entrainement;
 
-import java.util.Scanner;
+
+import java.util.*;
+import java.io.*;
 
 public class Entrainement {
 
-	public static void main(String[] args) {
-		String arguments="";
-		if(args.length!= 0) {
+	public static void main(String[] args) throws IOException {
+		String localDir = System.getProperty("user.dir");
+		FileInputStream config = new FileInputStream(localDir + "//src//properties//config.properties");
+		Properties properties = new Properties();
+		properties.load(config);
+		System.setProperties(properties);
+		 
+		String arguments = "";
+		if (args.length != 0) {
 			arguments = args[0];
 		}
-		int choiceReStart = 1; // variable interne a la methode et non plus un attribut de classe 
+		int choiceReStart = 1; // variable interne a la methode et non plus un attribut de classe
 		while (choiceReStart == 1) { // tant que choiceRestart est = 1 (choix) j'execute la boucle
 
 			View.display(View.choixmodedejeu);
@@ -41,6 +49,7 @@ public class Entrainement {
 			choiceReStart = scan.nextInt();
 
 		}
-		View.display(View.aurevoirAbientôt); 
+		View.display(View.aurevoirAbientôt);
 	}
+
 }
