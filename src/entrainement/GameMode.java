@@ -5,8 +5,11 @@ import java.util.Scanner;
 import java.io.*;
 
 public abstract class GameMode {
-	Properties properties = new Properties(System.getProperties());
-	public int nb_chiffre_combinaison = Integer.parseInt(properties.getProperty("nb_chiffre_combinaison"));
+
+//	Properties properties = new Properties(System.getProperties());
+//	public int nb_chiffre_combinaison = Integer.parseInt(properties.getProperty("nb_chiffre_combinaison"));
+
+	public int nb_chiffre_combinaison = 4;
 	protected String[] human = new String[nb_chiffre_combinaison];
 	protected int[] IA = new int[nb_chiffre_combinaison];
 

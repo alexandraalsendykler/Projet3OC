@@ -36,9 +36,9 @@ public class Defender extends GameMode {
 		} while (cpt < 4);
 
 		if (winIA == true) {
-			View.display(View.vousAvezGagné); // a remplacé system.out.println
+			View.display(View.vousAvezPerdu); // 
 		} else {
-			View.display(View.vousAvezPerdu); // a remplacé system.out.println
+			View.display(View.vousAvezGagné); // a remplacé system.out.println
 
 		}
 		
