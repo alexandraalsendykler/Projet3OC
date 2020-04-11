@@ -3,21 +3,21 @@ package entrainement;
 public class Defender extends GameMode {
 
 	
-	private String[] resultIA = new String[4];
+	private String[] resultIA ;
 	
-	public Defender() {
-
+	public Defender(String nBChiffreCombinaison ) {
+		this.nb_chiffre_combinaison = Integer.parseInt(nBChiffreCombinaison);
 		this.recupererChoixHuman();
 
 	}
 
-	public void play() {
+	public void play(int nbEssai) {
 		
 		boolean winIA = false;
 		int cpt = 0;
 		do {
 
-			if (resultIA[0] == null) { // si resultIA est égale à nul alors la proposition de l'IA va générer
+			if (resultIA == null) { // si resultIA est égale à nul alors la proposition de l'IA va générer
 				// 4 chiffres aléatoirement sinon il va vérifier si c'est = / + ou -
 				this.IA = this.generateNumber(null, null);
 			} else {
@@ -33,12 +33,12 @@ public class Defender extends GameMode {
 			}
 			
 
-		} while (cpt < 4);
+		} while (cpt < nbEssai);
 
 		if (winIA == true) {
-			View.display(View.vousAvezPerdu); // 
+			View.display(View.vousAvezPerdu); 
 		} else {
-			View.display(View.vousAvezGagné); // a remplacé system.out.println
+			View.display(View.vousAvezGagné); 
 
 		}
 		

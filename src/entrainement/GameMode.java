@@ -9,7 +9,7 @@ public abstract class GameMode {
 //	Properties properties = new Properties(System.getProperties());
 //	public int nb_chiffre_combinaison = Integer.parseInt(properties.getProperty("nb_chiffre_combinaison"));
 
-	public int nb_chiffre_combinaison = 4;
+	public int nb_chiffre_combinaison;
 	protected String[] human = new String[nb_chiffre_combinaison];
 	protected int[] IA = new int[nb_chiffre_combinaison];
 
@@ -57,7 +57,7 @@ public abstract class GameMode {
 
 	public void recupererChoixHuman() {
 
-		View.display(View.entréeProposition);
+		View.display(View.entréeProposition(nb_chiffre_combinaison));
 
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
@@ -70,7 +70,7 @@ public abstract class GameMode {
 																						// parametres d'entree pour
 																						// qu'elle puisse travailler
 		View.comparerValeur2 = ""; // remet a 0 la valeur comparerValeur2 soit ce qui affiche le +/=/-
-		String[] comparaison = new String[4]; // favoriser les variables locales plutôt que les attributs de classe
+		String[] comparaison = new String[nb_chiffre_combinaison]; // favoriser les variables locales plutôt que les attributs de classe
 		for (int i = 0; i < nb_chiffre_combinaison; i++) {
 			if (proposition[i] < combinaisonadeviner[i]) {
 				comparaison[i] = "+";

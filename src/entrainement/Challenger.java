@@ -2,16 +2,16 @@ package entrainement;
 
 public class Challenger extends GameMode { // extends = heritage de GameMode
 
-	public Challenger() { // constructeur de la classe Challenger
-
+	public Challenger(String nBChiffreCombinaison) { // constructeur de la classe Challenger
+		this.nb_chiffre_combinaison = Integer.parseInt(nBChiffreCombinaison);
 		this.IA = this.generateNumber(null, null);
 
 	}
 
-	public void play(String developpeurMode) {
+	public void play(String developpeurMode,int nbEssai) {
 		
-		if(developpeurMode.equals("activermodedev")) {
-			View.display(View.combinaisonIA(this.IA)); 
+		if(developpeurMode.equals("true")) {
+			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison)); 
 		}
 		int cpt = 0;
 		boolean winHuman = false;
@@ -25,7 +25,7 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 				break;
 			}
 
-		} while (cpt < 4);
+		} while (cpt < nbEssai);
 
 		if (winHuman == true) {
 			View.display(View.vousAvezGagné); 

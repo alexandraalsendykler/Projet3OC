@@ -29,19 +29,19 @@ public class Entrainement {
 			View.display(View.choixmodejeueffectué(userInput));
 			switch (userInput) {
 			case 1:
-				Challenger chall = new Challenger();
-				chall.play(modeDev);
+				Challenger chall = new Challenger(nBChiffreCombinaison);
+				chall.play(modeDev, Integer.parseInt(nbEssai));
 
 				break;
 
 			case 2:
-				Defender def = new Defender();
-				def.play();
+				Defender def = new Defender(nBChiffreCombinaison);
+				def.play( Integer.parseInt(nbEssai));
 				break;
 
 			case 3:
-				Duel duel = new Duel();
-				duel.play(modeDev);
+				Duel duel = new Duel( nBChiffreCombinaison);
+				duel.play(modeDev,  Integer.parseInt(nbEssai));
 				break;
 
 			}

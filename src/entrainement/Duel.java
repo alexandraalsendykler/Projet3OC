@@ -2,25 +2,24 @@ package entrainement;
 
 public class Duel extends GameMode {
 
-	private String[] combinaisonHumain = new String[4];
-	private int[] combinaisonIA = new int[4];
-	private String[] resultIA = new String[4];
+	private String[] combinaisonHumain ;
+	private int[] combinaisonIA ;
+	private String[] resultIA ;
 
-	public Duel() { // constructeur, a toujours le meme nom que la classe // c'est une super methode
-	
+	public Duel(String nBChiffreCombinaison) { // constructeur, a toujours le meme nom que la classe // c'est une super methode
+		this.nb_chiffre_combinaison = Integer.parseInt(nBChiffreCombinaison);
 		this.recupererChoixHuman();
 		combinaisonHumain = this.human;
 		combinaisonIA = this.generateNumber(null, null);
-		View.display(View.nBEssai); // indique au joueur le nb d'essai
+		
 	}
 
-	public void play(String developpeurMode) { // methode
-		
-		if(developpeurMode.equals("activermodedev")) {
-			View.display(View.combinaisonIA(combinaisonIA));
+	public void play(String developpeurMode, int nbEssai) { // methode
+		View.display(View.nBEssai(nbEssai)); // indique au joueur le nb d'essai
+		if(developpeurMode.equals("true")) {
+			View.display(View.combinaisonIA(combinaisonIA, this.nb_chiffre_combinaison));
 		}
 		
-		int nbEssai = 4; 
 		boolean winIA = false;
 		boolean winHuman = false;
 		while (winIA == false && winHuman == false && nbEssai != 0) {
@@ -32,14 +31,14 @@ public class Duel extends GameMode {
 			String[] resultHuman = this.comparerValeurs2(stringToInt(this.human), combinaisonIA);
 			winHuman = checkResult(resultHuman);
 
-			if (resultIA[0] == null) { // si resultIA est égale à nul alors la proposition de l'IA va générer
+			if (resultIA == null) { // si resultIA est égale à nul alors la proposition de l'IA va générer
 				// 4 chiffres aléatoirement sinon il va vérifier si c'est = / + ou -
 
 				this.IA = this.generateNumber(null, null);
 			} else {
 				this.IA = this.generateNumber(this.IA, resultIA);
 			}
-			View.display(View.combinaisonIA(this.IA));
+			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison));
 			resultIA = this.comparerValeurs2(this.IA, stringToInt(combinaisonHumain));
 			winIA = checkResult(resultIA);
 
