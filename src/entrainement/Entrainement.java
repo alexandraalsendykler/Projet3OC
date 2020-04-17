@@ -2,12 +2,21 @@ package entrainement;
 
 
 import java.util.*;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.io.*;
 
-public class Entrainement {
+public class Entrainement {  
 
+private static Logger logger = Logger.getLogger(Entrainement.class); // on peut l'utiliser comme on veut à partir de la ligne 16.
+	
 	public static void main(String[] args) throws IOException {
+		logger.info("Bonjour");
+	    
 		String localDir = System.getProperty("user.dir");
+    
 		FileInputStream config = new FileInputStream(localDir + "//src//properties//config.properties");
 		Properties properties = new Properties();
 		properties.load(config);
@@ -15,7 +24,7 @@ public class Entrainement {
 		String nbEssai = properties.getProperty("nb_essai"); // a maitriser par coeur !!!
 		String nBChiffreCombinaison = properties.getProperty("nb_chiffre_combinaison");
 		String modeDev = properties.getProperty("mode_dev");
-		 
+		logger.info(modeDev);
 		if (args.length != 0) {
 			modeDev = args[0];
 		}
