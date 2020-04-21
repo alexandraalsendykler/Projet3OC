@@ -1,16 +1,20 @@
 package entrainement;
 
-public class Defender extends GameMode {
+import org.apache.log4j.Logger;
 
+public class Defender extends GameMode {
+	
+	private static Logger logger = Logger.getLogger(Defender.class);
 	
 	private String[] resultIA ;
 	
 	public Defender(String nBChiffreCombinaison ) {
+		logger.info("Début du mode Defender");
 		this.nb_chiffre_combinaison = Integer.parseInt(nBChiffreCombinaison);
 		this.recupererChoixHuman();
 
 	}
-
+	
 	public void play(int nbEssai) {
 		
 		boolean winIA = false;
@@ -43,6 +47,7 @@ public class Defender extends GameMode {
 		}
 		
 		View.display(View.jeuTermine);
+		logger.info("Fin de la manche Defender");
 	}
 
 }

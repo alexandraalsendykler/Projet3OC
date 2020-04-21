@@ -13,7 +13,6 @@ public class Entrainement {
 private static Logger logger = Logger.getLogger(Entrainement.class); // on peut l'utiliser comme on veut à partir de la ligne 16.
 	
 	public static void main(String[] args) throws IOException {
-		logger.info("Bonjour");
 	    
 		String localDir = System.getProperty("user.dir");
     
@@ -32,6 +31,7 @@ private static Logger logger = Logger.getLogger(Entrainement.class); // on peut 
 		while (choiceReStart == 1) { // tant que choiceRestart est = 1 (choix) j'execute la boucle
 
 			View.display(View.choixmodedejeu);
+			logger.info("Le joueur choisi un mode de jeu");
 
 			Scanner sc = new Scanner(System.in);
 			int userInput = sc.nextInt();
@@ -56,11 +56,13 @@ private static Logger logger = Logger.getLogger(Entrainement.class); // on peut 
 			}
 
 			View.display(View.voulezVousrejouer);
+			logger.info("Le joueur a le choix de refaire une partie");
 			Scanner scan = new Scanner(System.in);
 			choiceReStart = scan.nextInt();
 
 		}
 		View.display(View.aurevoirAbientôt);
+		logger.info("Le joueur a choisi de ne pas recommencer une partie");
 	}
 
 }

@@ -2,6 +2,9 @@ package entrainement;
 
 import java.util.Properties;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
 import java.io.*;
 
 public abstract class GameMode {
@@ -12,7 +15,7 @@ public abstract class GameMode {
 	public int nb_chiffre_combinaison;
 	protected String[] human = new String[nb_chiffre_combinaison];
 	protected int[] IA = new int[nb_chiffre_combinaison];
-
+	private static Logger logger = Logger.getLogger(GameMode.class);
 	public int[] generateNumber(int[] proposition, String[] result) { // faire une amelioration pour tenir compte
 																		// chiffres // entrees + resultats des +/-/=
 		int[] number = new int[nb_chiffre_combinaison];
@@ -61,7 +64,7 @@ public abstract class GameMode {
 
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
-
+		logger.info("Le joueur entre sa proposition " + userInput);
 		human = userInput.split("", 0);
 	}
 
@@ -71,6 +74,7 @@ public abstract class GameMode {
 																						// qu'elle puisse travailler
 		View.comparerValeur2 = ""; // remet a 0 la valeur comparerValeur2 soit ce qui affiche le +/=/-
 		String[] comparaison = new String[nb_chiffre_combinaison]; // favoriser les variables locales plutôt que les attributs de classe
+		
 		for (int i = 0; i < nb_chiffre_combinaison; i++) {
 			if (proposition[i] < combinaisonadeviner[i]) {
 				comparaison[i] = "+";
