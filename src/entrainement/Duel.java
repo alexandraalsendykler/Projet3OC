@@ -23,7 +23,7 @@ public class Duel extends GameMode {
 		View.display(View.nBEssai(nbEssai)); // indique au joueur le nb d'essai
 		if(developpeurMode.equals("true")) {
 			View.display(View.combinaisonIA(combinaisonIA, this.nb_chiffre_combinaison));
-			logger.info(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison)); rajout pour log
+			logger.info(View.combinaisonIA(combinaisonIA, this.nb_chiffre_combinaison)); // rajout pour log
 		}
 		
 		boolean winIA = false;

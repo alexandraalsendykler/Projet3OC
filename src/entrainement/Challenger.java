@@ -15,8 +15,10 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 	public void play(String developpeurMode,int nbEssai) {
 		logger.info("Début du mode Challenger"); // rajout pour log
 		if(developpeurMode.equals("true")) {
+			logger.info("Le mode Dev est activé");
 			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison)); 
 			logger.info(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison));
+
 		}
 		int cpt = 0;
 		boolean winHuman = false;

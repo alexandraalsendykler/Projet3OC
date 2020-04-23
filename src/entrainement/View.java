@@ -23,7 +23,7 @@ public class View {
 
 	public static String combinaisonIA(int[] propositionIA, int nbCombinaison) {
 		String choixIA = ""; // "" sont la pour remettre a 0 les valeurs
-		for (int i = 0; i <nbCombinaison; i++) { // boucle est la pour parcourir le tableau du proposition IA
+		for (int i = 0; i < nbCombinaison; i++) { // boucle est la pour parcourir le tableau du proposition IA
 			choixIA += String.valueOf(propositionIA[i]); // le += sert a concatener la chaine de caractere de
 															// proposition IA
 		}
