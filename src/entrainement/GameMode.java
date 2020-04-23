@@ -64,7 +64,7 @@ public abstract class GameMode {
 
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
-		logger.info("Le joueur entre sa proposition " + userInput);
+		logger.info("Le joueur entre sa proposition " + userInput); // rajout pour log
 		human = userInput.split("", 0);
 	}
 

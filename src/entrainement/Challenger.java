@@ -13,7 +13,7 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 	}
 
 	public void play(String developpeurMode,int nbEssai) {
-		logger.info("Début du mode Challenger"); // rajout log
+		logger.info("Début du mode Challenger"); // rajout pour log
 		if(developpeurMode.equals("true")) {
 			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison)); 
 			logger.info(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison));
@@ -40,7 +40,7 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		}
 		
 		View.display(View.jeuTermine);
-		logger.info("Fin de la manche Challenger"); // rajout log 
+		logger.info("Fin de la manche Challenger"); // rajout pour log 
 	}}
 
 	

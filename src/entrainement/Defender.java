@@ -9,7 +9,7 @@ public class Defender extends GameMode {
 	private String[] resultIA ;
 	
 	public Defender(String nBChiffreCombinaison ) {
-		logger.info("Début du mode Defender");
+		logger.info("Début du mode Defender"); // rajout pour log
 		this.nb_chiffre_combinaison = Integer.parseInt(nBChiffreCombinaison);
 		this.recupererChoixHuman();
 
@@ -47,7 +47,7 @@ public class Defender extends GameMode {
 		}
 		
 		View.display(View.jeuTermine);
-		logger.info("Fin de la manche Defender");
+		logger.info("Fin de la manche Defender"); // rajout pour log
 	}
 
 }
