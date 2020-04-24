@@ -1,21 +1,16 @@
-package entrainement;
+package com.oc.alexandra;
 
-import java.util.Properties;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import java.io.*;
-
 public abstract class GameMode {
-
-//	Properties properties = new Properties(System.getProperties());
-//	public int nb_chiffre_combinaison = Integer.parseInt(properties.getProperty("nb_chiffre_combinaison"));
 
 	public int nb_chiffre_combinaison;
 	protected String[] human = new String[nb_chiffre_combinaison];
 	protected int[] IA = new int[nb_chiffre_combinaison];
 	private static Logger logger = Logger.getLogger(GameMode.class);
+	
 	public int[] generateNumber(int[] proposition, String[] result) { // faire une amelioration pour tenir compte
 																		// chiffres // entrees + resultats des +/-/=
 		int[] number = new int[nb_chiffre_combinaison];

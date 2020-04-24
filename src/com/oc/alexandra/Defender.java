@@ -1,4 +1,4 @@
-package entrainement;
+package com.oc.alexandra;
 
 import org.apache.log4j.Logger;
 

@@ -1,5 +1,5 @@
 
-package entrainement;
+package com.oc.alexandra;
 
 public class View {
 	public static String inputPropositionHuman = "Merci de saisir votre proposition";
