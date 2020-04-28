@@ -11,7 +11,7 @@ public class Duel extends GameMode {
 	private String[] resultIA ;
 
 	public Duel(String nBChiffreCombinaison) { // constructeur, a toujours le meme nom que la classe // c'est une super methode
-		logger.info("Le joueur et l'IA entre leur proposition"); // rajout pour log
+		logger.info("Le joueur et l'IA entrent leurs propositions respectives"); // rajout pour log
 		this.nb_chiffre_combinaison = Integer.parseInt(nBChiffreCombinaison);
 		this.recupererChoixHuman();
 		combinaisonHumain = this.human;
@@ -47,7 +47,7 @@ public class Duel extends GameMode {
 				
 			}
 			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison));
-			logger.info("L'IA entre sa proposition " + View.combinaisonIA(this.IA, this.nb_chiffre_combinaison)); // rajout pour log
+			logger.info(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison) + " que le joueur doit deviner"); // rajout pour log
 			resultIA = this.comparerValeurs2(this.IA, stringToInt(combinaisonHumain));
 			winIA = checkResult(resultIA);
 

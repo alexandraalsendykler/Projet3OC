@@ -10,7 +10,7 @@ public abstract class GameMode {
 	protected String[] human = new String[nb_chiffre_combinaison];
 	protected int[] IA = new int[nb_chiffre_combinaison];
 	private static Logger logger = Logger.getLogger(GameMode.class);
-	
+
 	public int[] generateNumber(int[] proposition, String[] result) { // faire une amelioration pour tenir compte
 																		// chiffres // entrees + resultats des +/-/=
 		int[] number = new int[nb_chiffre_combinaison];
@@ -59,7 +59,9 @@ public abstract class GameMode {
 
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
-		logger.info("Le joueur entre sa proposition " + userInput); // rajout pour log
+		logger.info("Le joueur donne la combinaison " + userInput + " que l'IA doit deviner"); // rajout pour log, j'ai
+																								// rajouté la phrase que
+																								// l'IA doit deviner
 		human = userInput.split("", 0);
 	}
 
@@ -68,8 +70,9 @@ public abstract class GameMode {
 																						// parametres d'entree pour
 																						// qu'elle puisse travailler
 		View.comparerValeur2 = ""; // remet a 0 la valeur comparerValeur2 soit ce qui affiche le +/=/-
-		String[] comparaison = new String[nb_chiffre_combinaison]; // favoriser les variables locales plutôt que les attributs de classe
-		
+		String[] comparaison = new String[nb_chiffre_combinaison]; // favoriser les variables locales plutôt que les
+																	// attributs de classe
+
 		for (int i = 0; i < nb_chiffre_combinaison; i++) {
 			if (proposition[i] < combinaisonadeviner[i]) {
 				comparaison[i] = "+";

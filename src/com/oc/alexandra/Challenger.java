@@ -3,7 +3,7 @@ package com.oc.alexandra;
 import org.apache.log4j.Logger;
 
 public class Challenger extends GameMode { // extends = heritage de GameMode
-	
+
 	private static Logger logger = Logger.getLogger(Challenger.class);
 
 	public Challenger(String nBChiffreCombinaison) { // constructeur de la classe Challenger
@@ -12,19 +12,33 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 
 	}
 
-	public void play(String developpeurMode,int nbEssai) {
+	public void play(String developpeurMode, int nbEssai) {
 		logger.info("Début du mode Challenger"); // rajout pour log
-		if(developpeurMode.equals("true")) {
+		if (developpeurMode.equals("true")) {
 			logger.info("Le mode Dev est activé");
-			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison)); 
+			View.display(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison));
 			logger.info(View.combinaisonIA(this.IA, this.nb_chiffre_combinaison));
 
 		}
 		int cpt = 0;
 		boolean winHuman = false;
-		do { 
-			this.recupererChoixHuman();
-			
+		
+		do {
+			boolean valid = false;
+			while (valid == false) {
+				this.recupererChoixHuman();
+				try {
+					if (this.human.length == this.nb_chiffre_combinaison  ) {
+						valid = true;
+					} else {
+						throw new Exception("Mauvaise combinaison");
+					}
+				} catch (Exception e) {
+					View.display(View.erreurchoix);
+					logger.info("Un mauvaix choix a été entré");
+
+				}
+			}
 			String[] resultHuman = this.comparerValeurs2(stringToInt(this.human), this.IA);
 			winHuman = checkResult(resultHuman);
 			cpt++;
@@ -35,14 +49,13 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		} while (cpt < nbEssai);
 
 		if (winHuman == true) {
-			View.display(View.vousAvezGagné); 
+			View.display(View.vousAvezGagné);
 		} else {
-			View.display(View.vousAvezPerdu); 
+			View.display(View.vousAvezPerdu);
 
 		}
-		
-		View.display(View.jeuTermine);
-		logger.info("Fin de la manche Challenger"); // rajout pour log 
-	}}
 
-	
+		View.display(View.jeuTermine);
+		logger.info("Fin de la manche Challenger"); // rajout pour log
+	}
+}

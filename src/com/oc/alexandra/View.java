@@ -4,11 +4,15 @@ package com.oc.alexandra;
 public class View {
 	public static String inputPropositionHuman = "Merci de saisir votre proposition";
 	public static String inputPropositionIA = "l'IA a fait sa proposition";
+	public static String erreurdefrappe = "Merci de choisir l'un des modes de jeux proposés";
+	public static String joueurdoitchoisirunmodeprésent = "Veuillez choisir l'un des modes ci-dessous";
+	public static String erreurchoix = "Mauvais choix entré";
 
 	public static String jeuTermine = "Le jeu est terminé, merci d'avoir joué !"; 
 	public static String vousAvezGagné = "Vous avez gagné !"; 
 	public static String vousAvezPerdu = "Vous avez perdu !"; 
-	public static String choixmodedejeu = "Bonjour ! " + "Vous pouvez choisir entre plusieurs modes de jeu :\n" + "1) Challenger\n" + 
+	public static String bonjour = "Bonjour !";
+	public static String choixmodedejeu =  "Vous pouvez choisir entre plusieurs modes de jeu :\n" + "1) Challenger\n" + 
 	"2) Defender\n" + "3) Duel\n" + "Quel est votre choix ?";
 
 	public static String voulezVousrejouer = " Voulez-vous rejouer ?\n1) oui \n2) non \n" + "Quel est votre choix ?";
