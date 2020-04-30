@@ -13,7 +13,16 @@ Lancez la JVM
 -----------------------------------------------------------------------------------
 Le jeu comporte 3 modes : Challenger, Defender, Duel
 
+Challenger = le joueur défie l'IA 
+Defender = l'IA défie le joueur
+Duel = le joueur et l'IA s'affronte à tour de rôle
+
 Les propriétés (nombre d'essais, longueur combinaison, mode dev) peut être activées via fichier config.properties
+
+Le mode dev, si activé, permets d'afficher la réponse dès lancement du jeu
+
+------------------------------------------------------------------------------------
+BON JEU !
 
 
 
