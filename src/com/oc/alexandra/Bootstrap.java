@@ -36,6 +36,9 @@ public class Bootstrap {
 			int userInput;
 			try {
 				userInput = sc.nextInt();
+				if (userInput != 1 && userInput != 2 && userInput != 3) {
+					throw new Exception("Mauvaise combinaison");
+				}
 				View.display(View.choixmodejeueffectué(userInput));
 			} catch (Exception e) {
 				View.display(View.erreurdefrappe); // rajout pour display information joueur
@@ -65,11 +68,25 @@ public class Bootstrap {
 				break;
 
 			}
-			
-			View.display(View.voulezVousrejouer);
-			logger.info("Le joueur a le choix de refaire une partie"); // rajout pour log
-			Scanner scan = new Scanner(System.in);
-			choiceReStart = scan.nextInt();
+			boolean restartValid = false;
+			while (restartValid == false) {
+
+				View.display(View.voulezVousrejouer);
+				logger.info("Le joueur a le choix de refaire une partie"); // rajout pour log
+				try {
+					Scanner scan = new Scanner(System.in); // rajout try and catch si erreur choix restart mode
+					choiceReStart = scan.nextInt();
+					if (choiceReStart != 1 && choiceReStart != 2) {
+						throw new Exception("Mauvaise combinaison");
+					}
+					restartValid = true;
+				} catch (Exception e) {
+					View.display(View.restart);
+					logger.info("Le joueur a entré un mauvais choix, il doit choisir 1 ou 2");
+					restartValid = false;
+				}
+
+			}
 
 		}
 		View.display(View.aurevoirAbientôt);

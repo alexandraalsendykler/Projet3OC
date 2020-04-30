@@ -54,11 +54,27 @@ public abstract class GameMode {
 	}
 
 	public void recupererChoixHuman() {
+		boolean valid = false;
+		String userInput = "";
+		while (valid == false) {
+			View.display(View.entréeProposition(nb_chiffre_combinaison));
+			Scanner sc = new Scanner(System.in);
+			userInput = sc.nextLine();
+			try {
+				if (userInput.length() == this.nb_chiffre_combinaison) {
+					valid = true;
+				} else {
+					throw new Exception("Mauvaise combinaison");
+				}
+				Integer.parseInt(userInput);
+				valid = true;
+			} catch (Exception e) {
+				View.display(View.erreurchoix);
+				logger.info("Le joueur a rentré une mauvaise combinaison, le jeu l'informe qu'il doit en rentrer une valide");
+				valid = false;
+			}
+		}
 
-		View.display(View.entréeProposition(nb_chiffre_combinaison));
-
-		Scanner sc = new Scanner(System.in);
-		String userInput = sc.nextLine();
 		logger.info("Le joueur donne la combinaison " + userInput + " que l'IA doit deviner"); // rajout pour log, j'ai
 																								// rajouté la phrase que
 																								// l'IA doit deviner

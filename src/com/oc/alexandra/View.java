@@ -7,6 +7,7 @@ public class View {
 	public static String erreurdefrappe = "Merci de choisir l'un des modes de jeux proposés";
 	public static String joueurdoitchoisirunmodeprésent = "Veuillez choisir l'un des modes ci-dessous";
 	public static String erreurchoix = "Mauvais choix entré";
+	public static String restart = "Mauvais choix entré, merci de choisir 1 ou 2 !"; 
 
 	public static String jeuTermine = "Le jeu est terminé, merci d'avoir joué !"; 
 	public static String vousAvezGagné = "Vous avez gagné !"; 
@@ -16,7 +17,7 @@ public class View {
 	"2) Defender\n" + "3) Duel\n" + "Quel est votre choix ?";
 
 	public static String voulezVousrejouer = " Voulez-vous rejouer ?\n1) oui \n2) non \n" + "Quel est votre choix ?";
-	public static String aurevoirAbientôt = "Aurevoir & a bientot";
+	public static String aurevoirAbientôt = "Aurevoir & à bientot";
 	public static String choixmodejeueffectué(int userInput) {
 		return "Vous avez choisi le mode " + userInput + ", bon jeu !";
 	}

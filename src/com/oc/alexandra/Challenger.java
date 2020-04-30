@@ -22,23 +22,11 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		}
 		int cpt = 0;
 		boolean winHuman = false;
-		
-		do {
-			boolean valid = false;
-			while (valid == false) {
-				this.recupererChoixHuman();
-				try {
-					if (this.human.length == this.nb_chiffre_combinaison  ) {
-						valid = true;
-					} else {
-						throw new Exception("Mauvaise combinaison");
-					}
-				} catch (Exception e) {
-					View.display(View.erreurchoix);
-					logger.info("Un mauvaix choix a été entré");
 
-				}
-			}
+		do {
+
+			this.recupererChoixHuman();
+
 			String[] resultHuman = this.comparerValeurs2(stringToInt(this.human), this.IA);
 			winHuman = checkResult(resultHuman);
 			cpt++;
