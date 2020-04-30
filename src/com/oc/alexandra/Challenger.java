@@ -37,7 +37,7 @@ public class Challenger extends GameMode { // extends = heritage de GameMode
 		} while (cpt < nbEssai);
 
 		if (winHuman == true) {
-			View.display(View.vousAvezGagné);
+			View.display(View.vousAvezGagné); // rajout pour view.display
 		} else {
 			View.display(View.vousAvezPerdu);
 
