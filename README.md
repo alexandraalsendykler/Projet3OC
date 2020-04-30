@@ -1,6 +1,6 @@
 Téléchargez le code en cliquant sur "download"
 
-Ouvrez le code avec votre l'IDE Eclipse ou votre console virtuelle
+Ouvrez le code avec votre IDE (par exemple Eclipse) ou votre console virtuelle
 
 Configurez le chemin entre le dossier "Projet3OC" et votre console
 
@@ -10,7 +10,12 @@ Après compilation le dossier "Projet3OC.class" sera généré
 
 Lancez la JVM
 
-La console affiche javac Projet30C.java
+-----------------------------------------------------------------------------------
+Le jeu comporte 3 modes : Challenger, Defender, Duel
+
+Les propriétés (nombre d'essais, longueur combinaison, mode dev) peut être activées via fichier config.properties
+
+
 
 
 
