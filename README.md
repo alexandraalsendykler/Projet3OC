@@ -2,7 +2,7 @@ Téléchargez le code appelé "Projet3OC" en cliquant sur "download" directement
 
 Lancez l'IDE Eclipse 
 
-Ouvrez le fichier "Projet3OC" via le menu "file" > "Open file" 
+Ouvrez le fichier "Projet3OC" via le menu "file" > "Import project" 
 
 "Projet3OC" est lancé 
 
