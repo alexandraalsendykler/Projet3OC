@@ -9,7 +9,7 @@ Ouvrez le fichier "Projet3OC" via le menu "file" > "Open file"
 Cliquez sur "run" pour lire le projet
 
 -----------------------------------------------------------------------------------
-Informations supplémentaires 
+Informations supplémentaires :
 
 Les propriétés (nombre d'essais, longueur combinaison, mode dev) peuvent être activées via fichier config.properties
 
