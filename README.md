@@ -1,21 +1,15 @@
-Téléchargez le code en cliquant sur "download"
+Téléchargez le code appelé "Projet3OC" en cliquant sur "download" directement sur le repository
 
-Ouvrez le code avec votre IDE (par exemple Eclipse) ou votre console virtuelle
+Lancez l'IDE Eclipse 
 
-Configurez le chemin entre le dossier "Projet3OC" et votre console
+Ouvrez le fichier "Projet3OC" via le menu "file" > "Open file" 
 
-Compilez le programme en utilisant la commande javac 
+"Projet3OC" est lancé 
 
-Après compilation le dossier "Projet3OC.class" sera généré
-
-Lancez la JVM
+Cliquez sur "run" pour lire le projet
 
 -----------------------------------------------------------------------------------
-Le jeu comporte 3 modes : Challenger, Defender, Duel
-
-Challenger = le joueur défie l'IA //
-Defender = l'IA défie le joueur // 
-Duel = le joueur et l'IA s'affronte à tour de rôle
+Informations supplémentaires 
 
 Les propriétés (nombre d'essais, longueur combinaison, mode dev) peuvent être activées via fichier config.properties
 
@@ -23,9 +17,3 @@ Le mode dev, si activé, permets d'afficher la réponse dès lancement du jeu
 
 ------------------------------------------------------------------------------------
 BON JEU !
-
-
-
-
-
-
