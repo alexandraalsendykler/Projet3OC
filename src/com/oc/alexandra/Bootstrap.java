@@ -15,9 +15,9 @@ public class Bootstrap {
 	public static void main(String[] args) throws IOException {
 		String localDir = System.getProperty("user.dir");
 
-		FileInputStream config = new FileInputStream(localDir + "//src//properties//config.properties");
-		Properties properties = new Properties();
-		properties.load(config);
+		FileInputStream config = new FileInputStream(localDir + "//src//properties//config.properties"); // instancie FileInputStream
+		Properties properties = new Properties(); // instancie et mets dans une propriété Properties 
+		properties.load(config); // méthode load prend un paramètre un FileImputStream  
 
 		String nbEssai = properties.getProperty("nb_essai"); // a maitriser par coeur !!!
 		String nBChiffreCombinaison = properties.getProperty("nb_chiffre_combinaison");

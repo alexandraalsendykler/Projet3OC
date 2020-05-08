@@ -61,16 +61,16 @@ public abstract class GameMode {
 			Scanner sc = new Scanner(System.in);
 			userInput = sc.nextLine();
 			try {
+				Integer.parseInt(userInput); // to check if imputs is integer if not it will throw an exception
 				if (userInput.length() == this.nb_chiffre_combinaison) {
 					valid = true;
 				} else {
 					throw new Exception("Mauvaise combinaison");
 				}
-				Integer.parseInt(userInput);
-				valid = true;
 			} catch (Exception e) {
 				View.display(View.erreurchoix);
-				logger.info("Le joueur a rentré une mauvaise combinaison, le jeu l'informe qu'il doit en rentrer une valide");
+				logger.info(
+						"Le joueur a rentré une mauvaise combinaison, le jeu l'informe qu'il doit en rentrer une valide");
 				valid = false;
 			}
 		}
