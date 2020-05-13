@@ -27,6 +27,7 @@ public class Bootstrap {
 		}
 		int choiceReStart = 1; // variable interne a la methode et non plus un attribut de classe
 		View.display(View.bonjour);
+		
 		while (choiceReStart == 1) { // tant que choiceRestart est = 1 (choix) j'execute la boucle
 
 			View.display(View.choixmodedejeu);
