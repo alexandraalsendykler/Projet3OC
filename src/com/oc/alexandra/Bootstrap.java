@@ -1,10 +1,7 @@
 package com.oc.alexandra;
 
 import java.util.*;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
+import org.apache.log4j.*;
 import java.io.*;
 
 public class Bootstrap {
